@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1751620092 source:c:\users\lenovo t480\desktop\erp_universitaire\allmenu.c
+	<stdio.h>
+	<stdlib.h>
+	"allMenu.h"
+
+1751620111 c:\users\lenovo t480\desktop\erp_universitaire\allmenu.h
+
+1751620066 source:c:\users\lenovo t480\desktop\erp_universitaire\recherches.c
+	"admin.h"
+	<stdio.h>
+	<string.h>
+	<stdbool.h>
+
+1751620266 c:\users\lenovo t480\desktop\erp_universitaire\admin.h
+	<stdio.h>
+	<stdbool.h>
+	<string.h>
+	<stdlib.h>
+	"dataBase.h"
+
+1751620009 c:\users\lenovo t480\desktop\erp_universitaire\database.h
+	<stdbool.h>
+	<stdio.h>
+	<string.h>
+
+1751620275 source:c:\users\lenovo t480\desktop\erp_universitaire\admin.c
+	<stdbool.h>
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"admin.h"
+	"dataBase.h"
+
+1751620329 source:c:\users\lenovo t480\desktop\erp_universitaire\stage.c
+	"admin.h"
+	<stdio.h>
+	<string.h>
+	<stdbool.h>
+	"stage.h"
+	"dataBase.h"
+
+1751620317 c:\users\lenovo t480\desktop\erp_universitaire\stage.h
+	<stdbool.h>
+	"admin.h"
+
