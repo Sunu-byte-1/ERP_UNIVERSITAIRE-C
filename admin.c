@@ -36,14 +36,54 @@ DATEPERSO saisirDate(char message[100])
 	DATEPERSO D;
 
 	printf("\n %s", message);
-	printf("\n  Jour:  ");
-	scanf("%d", &D.j);
+	printf("\nannee: ");
+	do
+	{
+		scanf("%d", &D.a);
+	} while (D.a < 1900 || D.a > 2100);
 
-	printf("  Mois:  ");
-	scanf("%d", &D.m);
+	printf("\nmois: ");
+	do
+	{
+		scanf("%d", &D.m);
+	} while (D.m < 1 || D.m > 12);
 
-	printf("  Annee:  ");
-	scanf("%d", &D.a);
+	do
+	{
+		printf("\njour: ");
+		scanf("%d", &D.j);
+		if (D.m == 2)
+		{
+			if (D.a % 4 == 0 && D.a % 100 != 0 || D.a % 400 == 0)
+			{
+				if (D.j < 1 || D.j > 29)
+				{
+					printf("Jour invalide pour fevrier d'une annee bissextile.\n");
+				}
+			}
+			else
+			{
+				if (D.j < 1 || D.j > 28)
+				{
+					printf("Jour invalide pour fevrier d'une annee non bissextile.\n");
+				}
+			}
+		}
+		else if (D.m == 4 || D.m == 6 || D.m == 9 || D.m == 11)
+		{
+			if (D.j < 1 || D.j > 30)
+			{
+				printf("Jour invalide pour le mois %d.\n", D.m);
+			}
+		}
+		else
+		{
+			if (D.j < 1 || D.j > 31)
+			{
+				printf("Jour invalide pour le mois %d.\n", D.m);
+			}
+		}
+	} while ((D.m == 2 && ((D.a % 4 == 0 && D.a % 100 != 0 || D.a % 400 == 0) ? (D.j < 1 || D.j > 29) : (D.j < 1 || D.j > 28))) || (D.m == 4 || D.m == 6 || D.m == 9 || D.m == 11) ? (D.j < 1 || D.j > 30) : (D.j < 1 || D.j > 31));
 
 	return D;
 }
@@ -161,4 +201,50 @@ void ajouterNote(ETUDIANT tabEtudiants[], int nbEtudiants)
 		printf("\n\nEtudiant avec le matricule %s non trouve.\n", matriculeSaisi);
 	}
 	system("pause");
+}
+
+void statistiques(ETUDIANT tabEtudiants[], int nbEtudiants, STAGE tabStages[], int nbStages, PROFESSEUR tabProfesseurs[100], int nbProfesseurs, ENTREPRISE tabEntreprises[], int nbEntreprises)
+{
+
+	printf("\n==========================ETUDIANTS======================");
+	printf("\n\tNombre total d'etudiants: %d", nbEtudiants);
+	printf("\n\tNombre d'etudiants avec une moyenne: ");
+	printf("\n\t\t\t\t%d", nbEtudiants);
+	printf("\n\tNombre d'etudiants ayant postule a un stage: %d", cptstage(tabEtudiants, nbEtudiants));
+	printf("\n\tNombre d'etudiants ayant la moyenne: %d", cptMoyenne(tabEtudiants, nbEtudiants));
+
+	printf("\n\n==========================PROFESSEURS======================");
+	printf("\n\tNombre total de professeurs: %d", nbProfesseurs);
+
+	printf("\n\n==========================ENTREPRISES======================");
+	printf("\n\tNombre total d'entreprises: %d", nbEntreprises);
+	printf("\n\tNombre total de stages: %d", nbStages);
+}
+
+int cptstage(ETUDIANT tabEtudiants[], int nbEtudiants)
+{
+	int count = 0;
+	for (int i = 0; i < nbEtudiants; i++)
+	{
+		if (strcmp(tabEtudiants[i].statutStage, "attente") == 0)
+		{
+			count++;
+		}
+	}
+	return count;
+}
+int cptMoyenne(ETUDIANT tabEtudiants[], int nbEtudiants)
+{
+	int count = 0;
+	for (int i = 0; i < nbEtudiants; i++)
+	{
+		if (strcmp(tabEtudiants[i].moyenneEtudiant, "vide") != 0)
+		{
+			if (atof(tabEtudiants[i].moyenneEtudiant) > 10.0)
+			{
+				count++;
+			}
+		}
+	}
+	return count;
 }

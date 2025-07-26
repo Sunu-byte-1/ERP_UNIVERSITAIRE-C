@@ -427,6 +427,14 @@ int main()
                             }
                         } while (choixAdminProfesseur != 6);
                         break;
+
+                    case 4:
+                        system("cls");
+                        statistiques(tabEtudiants, nbEtudiants, tabStages, nbStages, tabProfesseurs, nbProfesseurs, tabEntreprises, nbEntreprises);
+                        printf("\n\n");
+                        system("pause");
+                        break;
+
                     default:
                         break;
                     }

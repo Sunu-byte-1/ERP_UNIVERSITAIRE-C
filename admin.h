@@ -20,3 +20,6 @@ void afficherEtudiantsAvecStagesTriees(ETUDIANT tabEtudiants[], int nbEtudiants)
 void etudiantsAvecMoyenneSuperieure(ETUDIANT tabEtudiants[], int nbEtudiants);
 void etudiantsAvecMoyenneInferieure(ETUDIANT tabEtudiants[], int nbEtudiants);
 void listeEtudiantsTrieParNom(ETUDIANT tabEtudiants[], int nbEtudiants);
+int cptstage(ETUDIANT tabEtudiants[], int nbEtudiants);
+int cptMoyenne(ETUDIANT tabEtudiants[], int nbEtudiants);
+void statistiques(ETUDIANT tabEtudiants[], int nbEtudiants, STAGE tabStages[], int nbStages, PROFESSEUR tabProfesseurs[100], int nbProfesseurs, ENTREPRISE tabEntreprises[], int nbEntreprises);
